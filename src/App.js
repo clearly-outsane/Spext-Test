@@ -32,12 +32,11 @@ function App() {
             setPaused(true);
           }
           let i = 1;
-          if (position + i in textData) {
-            while (textData[position + i].deleted) {
-              position += 1;
-              if (!position + i in textData) break;
-            }
+
+          while (position + i in textData && textData[position + i].deleted) {
+            position += 1;
           }
+
           return position + 1;
         });
       }, 500);
